@@ -1,0 +1,28 @@
+ID: XSADemo2
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_XSADemo2
+  - name: srv
+    type: nodejs
+    path: srv
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hdi_XSADemo2
+  - name: web
+    type: html5
+    path: web
+    requires:
+      - name: hdi_XSADemo2
+resources:
+  - name: hdi_XSADemo2
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
