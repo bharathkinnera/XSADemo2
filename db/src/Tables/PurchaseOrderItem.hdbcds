@@ -1,0 +1,21 @@
+namespace XSADemo2.XSADB.Tables;
+
+entity POItems {
+    key POHeader     : Integer;
+    key POItem       : Integer;
+        PRODUCT      : String(30);
+        NOTEID       : String(30);
+        CURRENCY     : String(30);
+        GROSSAMOUNT  : Decimal(22, 2);
+        NETAMOUNT    : Decimal(22, 2);
+        TAXAMOUNT    : Decimal(22, 2);
+        QUANTITY     : Decimal(22, 2);
+        QUANTITYUNIT : String(3);
+        DELIVERYDATE : String(8);
+        IsActive	 : Boolean;
+}
+technical configuration {
+    partition by
+        Hash (POHeader) partitions GET_NUM_SERVERS(),
+        Hash (PRODUCT) partitions GET_NUM_SERVERS();
+}

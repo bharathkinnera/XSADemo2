@@ -9,7 +9,7 @@
   },
   "files": [],
   "main": "server.js",
-  "name": "XSANODE",
+  "name": "srv",
   "scripts": {
     "start": "node server.js",
     "test": "node testrun.js"
